@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd" default-lazy-init="true">
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="/WEB-INF/conf/prueba.properties" />
+	</bean>
+
+	<!-- Actions -->
+	<bean name="/acceso" class="es.servinform.prueba.struts.actions.AccesoAction">
+		<property name="accesoManager" ref="accesoManager" />
+	</bean>
+	
+	<bean name="/adjuntarDocumento" class="es.servinform.prueba.struts.actions.AdjuntarDocumentoAction">
+	</bean>
+
+</beans>

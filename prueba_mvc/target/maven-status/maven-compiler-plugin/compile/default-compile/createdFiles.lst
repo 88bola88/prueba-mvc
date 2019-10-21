@@ -1,0 +1,6 @@
+es\servinform\prueba\negocio\impl\AccesoManagerImpl.class
+es\servinform\prueba\struts\actions\AdjuntarDocumentoAction.class
+es\servinform\prueba\struts\forms\AccesoForm.class
+es\servinform\prueba\struts\actions\AccesoAction.class
+es\servinform\prueba\negocio\manager\IAccesoManager.class
+es\servinform\prueba\struts\forms\DocumentoAdjuntoForm.class

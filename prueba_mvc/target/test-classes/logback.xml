@@ -1,0 +1,45 @@
+<configuration debug="false" scan="true" scanPeriod="3600 seconds">
+	<!-- Log a Consola -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+		<encoder>
+			<pattern>%date{[yyyy-MM-dd HH:mm:ss.SSS]} {%thread}[%-5level][%logger]: %msg%n</pattern> 
+		</encoder>
+	</appender>
+
+	<!-- Log a Archivo -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>./logs/fachadaUnica_test.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>./logs/fachadaUnica_test.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<!-- keep 30 days' worth of history -->
+			<!-- <maxHistory>30</maxHistory> -->
+		</rollingPolicy>
+		<encoder>
+			<!-- <pattern>%date %level [%thread] %logger{36} [%file:%line] %msg%n</pattern> -->
+			<pattern>%date{[yyyy-MM-dd HH:mm:ss.SSS]} {%thread}[%-5level][%logger]: %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.apache" level="ERROR"/>
+	<logger name="org.displaytag" level="ERROR"/>
+	<logger name="net.sf.dozer.util.mapping" level="ERROR"/>
+	<logger name="es.juntadeandalucia.cice.cmi.pct.fachadaunica" level="DEBUG"/>
+	<logger name="es.juntadeandalucia.cice.cmi.pct.alfresco" level="DEBUG"/>
+	<logger name="es.juntadeandalucia.cice.cmi.pct.fachadaunica.factoria" level="DEBUG"/>
+	<logger name="es.juntadeandalucia.cice.cmi.pct.fachadaunica.mapeos" level="DEBUG"/>
+	<logger name="es.juntadeandalucia.cice.cmi.pct.fachadaunica.negocio" level="DEBUG"/>
+	<logger name="es.juntadeandalucia.cice.cmi.pct.fachadaunica.struts" level="DEBUG"/>
+	<logger name="es.juntadeandalucia.cice.cmi.pct.fachadaunica.vista" level="DEBUG"/>
+	<logger name="es.juntadeandalucia.cice.cmi.pct.moad" level="DEBUG"/>
+	<logger name="es.juntadeandalucia.cice.cmi.pct.trewa" level="DEBUG"/>
+	<logger name="es.juntadeandalucia.cice.cmi.pct.fachadaunica.util" level="DEBUG"/>
+
+	<!-- Strictly speaking, the level attribute is not necessary since -->
+  	<!-- the level of the root level is set to DEBUG by default.       -->
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+	    <appender-ref ref="FILE" />
+	</root>
+</configuration>

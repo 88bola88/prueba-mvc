@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE struts-config PUBLIC
+       "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+       "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="accesoForm" type="es.servinform.prueba.struts.forms.AccesoForm" />
+		<form-bean name="documentoAdjuntoForm" type="es.servinform.prueba.struts.forms.DocumentoAdjuntoForm" />
+	</form-beans>
+
+	<global-exceptions>
+
+	</global-exceptions>
+
+	<action-mappings>
+
+		<!-- Action de acceso -->
+		<action path="/acceso" type="org.springframework.web.struts.DelegatingActionProxy" name="accesoForm" parameter="opcion">
+			<forward name="success" path="/adjuntarDocumento.do?opcion=unspecified" />
+			<forward name="failed" path="/inicio.jsp" />			
+		</action>
+		
+		<!-- Action para adjuntar documento -->
+		<action path="/adjuntarDocumento" type="org.springframework.web.struts.DelegatingActionProxy" name="documentoAdjuntoForm" parameter="opcion">
+			<forward name="success" path="/jsp/adjuntarDocumento.jsp" />
+		</action>
+	
+	</action-mappings>
+	<message-resources parameter="es.servinform.prueba.messages"/>
+
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation" value="/WEB-INF/action-servlet.xml" />
+	</plug-in>
+
+</struts-config>

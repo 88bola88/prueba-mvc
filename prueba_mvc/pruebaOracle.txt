@@ -1,0 +1,12 @@
+1 no lo se
+2 no se
+3 b
+4 c y d
+5 d
+6 b
+7 a  d
+8 a b c
+9 union all no elimina  los valores  que se duplican
+10 c
+11 c
+12 a

@@ -1,0 +1,30 @@
+<configuration debug="false" scan="true" scanPeriod="3600 seconds">
+	<!-- Log a Consola -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{[yyyy-MM-dd HH:mm:ss.SSS]} {%thread}[%-5level][%logger]: %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- Log a Archivo -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/prueba.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.base}/logs/prueba.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{[yyyy-MM-dd HH:mm:ss.SSS]} {%thread}[%-5level][%logger]: %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.apache" level="ERROR"/>
+	<logger name="org.apache.struts" level="ERROR"/>
+	<logger name="es.servinform.prueba" level="DEBUG"/>
+	
+	<!-- Strictly speaking, the level attribute is not necessary since	-->
+	<!-- the level of the root level is set to DEBUG by default.		-->
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>
